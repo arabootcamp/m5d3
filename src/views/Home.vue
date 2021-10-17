@@ -4,7 +4,7 @@
 
     <v-container>
       <v-row no-gutters>
-        <v-col cols="12" sm="6" md="4" v-for="(item,index) of getPersonajes" :key="index">
+        <v-col cols="12" sm="6" lg="4" v-for="(item,index) of getPersonajes" :key="index">
           <Card :urlImg="item.imagen" :name="item.nombre" />
         </v-col>
       </v-row>
