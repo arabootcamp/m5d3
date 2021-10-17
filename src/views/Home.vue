@@ -1,18 +1,32 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Navbar />
+
+    <v-container>
+      <v-row no-gutters>
+        <v-col cols="12" sm="6" md="4" v-for="(item,index) of getPersonajes" :key="index">
+          <Card :urlImg="item.imagen" :name="item.nombre" />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  import {
+    mapGetters
+  } from 'vuex'
+  import Navbar from '@/components/Navbar.vue'
+  import Card from '@/components/Card.vue'
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  export default {
+    name: 'Home',
+    components: {
+      Navbar,
+      Card
+    },
+    computed: {
+      ...mapGetters(['getPersonajes'])
+    }
   }
-}
 </script>
